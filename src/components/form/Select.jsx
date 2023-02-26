@@ -12,7 +12,12 @@ function Select({ text, name, options, value, handleOnChange }) {
                 onChange={handleOnChange}
                 className="font-normal p-3 text-lg"
             >
-                <option>Selecione uma opção</option>
+                <option defaultChecked>Selecione uma opção</option>
+                {options.map((item) => (
+                    <option value={item.id} key={item.id}>
+                        {item.name}
+                    </option>
+                ))}
             </select>
         </label>
     );
