@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Container from '../layout/Container';
 import Paragraph from '../layout/Paragraph';
 import Title from '../layout/Title';
 import ProjectForm from '../project/ProjectForm';
@@ -10,7 +11,9 @@ function NovoProjeto() {
         project.cost = 0;
         project.services = [];
 
-        fetch('http://localhost:5000/projects', {
+        const baseUrl = 'http://localhost:5000/projects';
+
+        fetch(baseUrl, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -20,19 +23,21 @@ function NovoProjeto() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                navigate('/projetos');
+                navigate('/projetos', {
+                    state: { message: 'Projeto criado com sucesso!' },
+                });
             })
             .catch((err) => console.log(err));
     };
 
     return (
-        <section className="flex flex-col justify-center items-center min-h-[75%]">
-            <Title customClass="mb-12">Criar Projeto</Title>
-            <Paragraph customClass="mb-10">
+        <Container customClass="h-3/4 flex-col items-center justify-center">
+            <Title customClass="mb-6">Criar Projeto</Title>
+            <Paragraph customClass="mb-12">
                 Crie seu projeto para depois adicionar os serviços
             </Paragraph>
             <ProjectForm handleSubmit={createPost} btnText="Criar Projeto" />
-        </section>
+        </Container>
     );
 }
 
