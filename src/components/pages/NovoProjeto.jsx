@@ -31,7 +31,7 @@ function NovoProjeto() {
     };
 
     return (
-        <Container customClass="h-3/4 flex-col items-center justify-center">
+        <Container customClass="flex flex-wrap h-3/4 flex-col items-center justify-center">
             <Title customClass="mb-6">Criar Projeto</Title>
             <Paragraph customClass="mb-12">
                 Crie seu projeto para depois adicionar os serviços

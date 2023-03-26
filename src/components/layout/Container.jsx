@@ -1,9 +1,7 @@
-const Container = ({ children, customClass }) => {
+function Container({ children, customClass }) {
     return (
-        <div className={`w-[1200px] flex mx-auto flex-wrap ${customClass}`}>
-            {children}
-        </div>
+        <div className={`w-[1200px] mx-auto ${customClass}`}>{children}</div>
     );
-};
+}
 
 export default Container;

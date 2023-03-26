@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const Message = ({ type, msg }) => {
+function Message({ type, msg }) {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Message = ({ type, msg }) => {
         <>
             {visible && (
                 <div
-                    className={`w-40 h-20 p-4 border border-solid border-black mb-8 rounded-md text-center ${
+                    className={`flex items-center justify-center w-[1200px] p-4 border border-solid border-black rounded-md absolute right-1/2 translate-x-1/2 ${
                         typeClass || ''
                     }`}
                 >
@@ -37,6 +37,6 @@ const Message = ({ type, msg }) => {
             )}
         </>
     );
-};
+}
 
 export default Message;
